@@ -1,5 +1,16 @@
-import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material'
 import React from 'react'
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+
+function createData(name, calories, fat, carbs, protein) {
+  return { name, calories, fat, carbs, protein };
+}
+
 const rows = [
   {
     name:'ARUN',
@@ -16,18 +27,19 @@ const rows = [
   department:'Chemistry',
   semester:'s3',
 },
-]
+];
 
 const Records = () => {
   return (
-    <TableContainer component={Paper}>
+    <div>
+      <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>name</TableCell>
-            <TableCell align="right">department</TableCell>
-            <TableCell align="right">semester</TableCell>
-           
+            <TableCell>Name</TableCell>
+            <TableCell align="right">Department</TableCell>
+            <TableCell align="right">Semester</TableCell>
+            
           </TableRow>
         </TableHead>
         <TableBody>
@@ -41,12 +53,13 @@ const Records = () => {
               </TableCell>
               <TableCell align="right">{row.department}</TableCell>
               <TableCell align="right">{row.semester}</TableCell>
-            
+              
             </TableRow>
           ))}
         </TableBody>
       </Table>
     </TableContainer>
+    </div>
   )
 }
 
